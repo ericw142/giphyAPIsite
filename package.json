@@ -1,0 +1,29 @@
+{
+  "name": "giphyapisite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "\t",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "jquery": "^3.6.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericw142/giphyAPIsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericw142/giphyAPIsite/issues"
+  },
+  "homepage": "https://github.com/ericw142/giphyAPIsite#readme"
+}
