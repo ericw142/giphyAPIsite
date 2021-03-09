@@ -4,6 +4,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3000;
 const app = express();
 
+// Setting up ENV
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
@@ -15,6 +16,8 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("public"));
 }
 app.use(express.static(path.join(__dirname, 'public')));
+
+require("./api")(app);
 
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "./public/index.html"));
