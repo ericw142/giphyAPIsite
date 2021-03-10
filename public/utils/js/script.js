@@ -82,6 +82,10 @@ $(document).ready(function() {
             $(this).trigger("enterKey");
         }
     });
+    $("#clearBtn").on("click", function(event) {
+        event.preventDefault();
+        $("#searchSpan").empty();
+    })
 
     // Initial Content Load
     loadGifs();
