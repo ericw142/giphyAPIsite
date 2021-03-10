@@ -19,18 +19,16 @@ $(document).ready(function() {
                         let gifURL = result.data[i].embed_url;
                         let gif = $("<iframe>");
                         gif.attr("src", gifURL);
+                        gif.attr("frameBorder", "0");
                         $("#span"+i).append(gif);
                     }
                 },
                 type: 'GET'
             })
         })
-    }
+    };
 
-    // Search Gifs
-    $("#searchBtn").on("click", function(event) {
-        event.preventDefault();
-        
+    function searchGifs() {
         let searchTerm = $("#search").val()
         $.ajax({
             url: "/search"
@@ -50,12 +48,31 @@ $(document).ready(function() {
                     let gifURL = result.data[0].embed_url;
                     let gif = $("<iframe>");
                     gif.attr("src", gifURL);
-                    $("#searchSpan").append(gif);
+                    gif.attr("frameBorder", "0");
+                    $("#searchSpan").prepend(gif);
                 },
                 type: 'GET'
             })
         })
- 
+    };
+
+
+    // Event Listeners
+    $("#searchBtn").on("click", function(event) {
+        event.preventDefault();
+        searchGifs();
+        $("#search").val("");
+    });
+
+    $("#search").bind("enterKey", function(event) {
+        event.preventDefault();
+        searchGifs();
+        $("#search").val("");
+    });
+    $("#search").keyup(function(e) {
+        if (e.keyCode == 13) {
+            $(this).trigger("enterKey");
+        }
     });
 
     // Initial Content Load
