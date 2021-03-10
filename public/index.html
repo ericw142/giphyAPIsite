@@ -11,8 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="app" class="container">
-        
+    <div id="app" class="container-fluid">
 
         <header>
             <h1 class="display-1">Client-side Giphy</h1>
@@ -20,36 +19,52 @@
         </header>
             
         <main>
-            <!-- Sample Gif Display -->
-            <div class="row marginTop">
-                <div class="col-md-3"><span class="border" id="span0"></span></div>
-                <div class="col-md-3"><span class="border" id="span1"></span></div>
-                <div class="col-md-3"><span class="border" id="span2"></span></div>
-                <div class="col-md-3"><span class="border" id="span3"></span></div>
-            </div>
-            <div class="row marginTop">
-                <div class="col-md-3"><span class="border" id="span4"></span></div>
-                <div class="col-md-3"><span class="border" id="span5"></span></div>
-                <div class="col-md-3"><span class="border" id="span6"></span></div>
-                <div class="col-md-3"><span class="border" id="span7"></span></div>
-            </div>
-            <!-- Search Section of Page -->
-            <div class="row marginTop">
-                <div class="col-md-9">
-                    <input id="search" type="text" class="form-control" placeholder="search giphy">
-                    <button id="searchBtn" class="btn btn-outline-primary" type="submit">Search</button>
-                </div>
-                <div class="col-md-3">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+            <div class="col-md-3">
+                <!-- Search Section of Page -->
+                <div class="row marginTop">
+                    <div class="col-md-12">
+                        <input id="search" type="text" class="form-control" placeholder="search giphy">
+                        <button id="searchBtn" class="btn btn-primary" type="submit">Search</button>
                     </div>
-                    <p>a progress bar will animate as search loads</p>
+
+                    <!-- WIP -->
+
+                    <!-- <div class="col-md-3">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                        </div>
+                        <p>a progress bar will animate as search loads</p>
+                    </div> -->
+
+                </div>
+                <!-- Search Results -->
+                <div class="row marginTop">
+                    <div class="col-md-12"><span class="border" id="searchSpan"></span></div>
                 </div>
             </div>
-            <!-- Search Results -->
-            <div class="row marginTop">
-                <div class="col-md-12"><span class="border" id="searchSpan"></span></div>
+            <div class="col-md-9">
+                <!-- Trending Gif Display -->
+                <div class="row marginTop">
+                    <h2>Trending Gifs</h2>
+                    <div class="col-md-3"><span class="border" id="span0"></span></div>
+                    <div class="col-md-3"><span class="border" id="span1"></span></div>
+                    <div class="col-md-3"><span class="border" id="span2"></span></div>
+                    <div class="col-md-3"><span class="border" id="span3"></span></div>
+                </div>
+                <div class="row marginTop">
+                    <div class="col-md-3"><span class="border" id="span4"></span></div>
+                    <div class="col-md-3"><span class="border" id="span5"></span></div>
+                    <div class="col-md-3"><span class="border" id="span6"></span></div>
+                    <div class="col-md-3"><span class="border" id="span7"></span></div>
+                </div>
+                <div class="row marginTop">
+                    <div class="col-md-3"><span class="border" id="span8"></span></div>
+                    <div class="col-md-3"><span class="border" id="span9"></span></div>
+                    <div class="col-md-3"><span class="border" id="span10"></span></div>
+                    <div class="col-md-3"><span class="border" id="span11"></span></div>
+                </div>
             </div>
+           
         </main>
     </div>
     <footer id="footer" className="font-small pt-4 mt-4">

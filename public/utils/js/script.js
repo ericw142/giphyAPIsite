@@ -3,7 +3,7 @@ $(document).ready(function() {
         $.ajax({
             url: "/search"
         }).then(key => {
-            let loadGifsURL = "https://api.giphy.com/v1/gifs/trending?api_key="+key+"&limit=8";
+            let loadGifsURL = "https://api.giphy.com/v1/gifs/trending?api_key="+key+"&limit=12";
 
             $.ajax({
                 url: loadGifsURL,
@@ -17,10 +17,14 @@ $(document).ready(function() {
                     for (var i = 0; i < result.data.length; i++) {
                         // Create Iframe elements holding gifs
                         let gifURL = result.data[i].embed_url;
+                        let gifTitle = result.data[i].title;
+                        let p = $("<p>");
+                        p.text(gifTitle);
                         let gif = $("<iframe>");
                         gif.attr("src", gifURL);
                         gif.attr("frameBorder", "0");
                         $("#span"+i).append(gif);
+                        $("#span"+i).append(p);
                     }
                 },
                 type: 'GET'
@@ -46,9 +50,13 @@ $(document).ready(function() {
                 success: function(result) {
                     // Create search result iframe gif
                     let gifURL = result.data[0].embed_url;
+                    let gifTitle = result.data[0].title;
+                    let p = $("<p>");
+                    p.text(gifTitle);
                     let gif = $("<iframe>");
                     gif.attr("src", gifURL);
                     gif.attr("frameBorder", "0");
+                    $("#searchSpan").prepend(p);
                     $("#searchSpan").prepend(gif);
                 },
                 type: 'GET'
