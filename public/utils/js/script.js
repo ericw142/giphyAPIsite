@@ -1,13 +1,41 @@
 $(document).ready(function() {
-    
+    function loadGifs() {
+        $.ajax({
+            url: "/search"
+        }).then(key => {
+            let loadGifsURL = "https://api.giphy.com/v1/gifs/trending?api_key="+key+"&limit=8";
 
+            $.ajax({
+                url: loadGifsURL,
+                data: {
+                    format: 'json'
+                },
+                error: function() {
+                    alert("An error has occured");
+                },
+                success: function(result) {
+                    for (var i = 0; i < result.data.length; i++) {
+                        // Create Iframe elements holding gifs
+                        let gifURL = result.data[i].embed_url;
+                        let gif = $("<iframe>");
+                        gif.attr("src", gifURL);
+                        $("#span"+i).append(gif);
+                    }
+                },
+                type: 'GET'
+            })
+        })
+    }
+
+    // Search Gifs
     $("#searchBtn").on("click", function(event) {
         event.preventDefault();
         
+        let searchTerm = $("#search").val()
         $.ajax({
             url: "/search"
-        }).then(response => {
-            let searchurl = "https://api.giphy.com/v1/gifs/random?api_key="+response+"&limit=1";
+        }).then(key => {
+            let searchurl = "https://api.giphy.com/v1/gifs/search?api_key="+key+"&q="+searchTerm+"&limit=1";
 
             $.ajax({
                 url: searchurl,
@@ -17,13 +45,20 @@ $(document).ready(function() {
                 error: function() {
                     alert("An error has occured");
                 },
-                success: function(data) {
-                    console.log(data);
+                success: function(result) {
+                    // Create search result iframe gif
+                    let gifURL = result.data[0].embed_url;
+                    let gif = $("<iframe>");
+                    gif.attr("src", gifURL);
+                    $("#searchSpan").append(gif);
                 },
                 type: 'GET'
             })
         })
  
     });
+
+    // Initial Content Load
+    loadGifs();
 })
 
